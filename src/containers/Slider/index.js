@@ -8,14 +8,18 @@ const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+    // new Date(evtA.date) < new Date(evtB.date) ? 1 : 1 Ancienne fonction de comparaison
+    new Date(evtA.date) > new Date(evtB.date) ? -1 : 1 // Nouvelle fonction de comparaison en inversant l'opérateur de comparaison
   );
+
   const nextCard = () => {
     setTimeout(
-      () => setIndex(index < byDateDesc.length ? index + 1 : 0),
+      // () => setIndex(index < byDateDesc.length ? index + 1 : 0), Ancienne fonction (index = 0/1/2/3 car byDateDesc.length = 3)
+      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0), // Nouvelle fonction (index = 0/1/2 car byDateDesc.length - 1 = 2)
       5000
     );
   };
+  
   useEffect(() => {
     nextCard();
   });
