@@ -37,7 +37,9 @@ const Form = ({ onSuccess, onError }) => {
             titleEmpty
           />
           <Field placeholder="" label="Email" />
-          <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}>
+          {/* Ajout de onClick={() => onSuccess()} pour rendre fonctionnel le click et afficher la modale de confirmation  */}
+          <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}
+          onClick={() => onSuccess()}>
             {sending ? "En cours" : "Envoyer"}
           </Button>
         </div>
