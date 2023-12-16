@@ -13,7 +13,19 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+  
+// const {last} = useData()
+// Ajout:
+const {data,error} = useData()
+// console.log("Value Data")
+// console.log(data)
+// Tri des événements par date en utilisant la méthode sort()
+const dataSortedByDate = data?.events.sort((a,b)=> new Date(b.date) - new Date(a.date)) || []
+// Optention du dernier élément à partir du premier élément de dataSortedByDate
+const last = data ? dataSortedByDate[0]: null
+// console.log("Value Last")
+// console.log(last)
+
   return <>
     <header>
       <Menu />
@@ -96,8 +108,7 @@ const Page = () => {
         <Modal
           Content={
             <div className="ModalMessage--success">
-              {/* <div>Message envoyé !</div> */}
-              <h2>Message envoyé !</h2> 
+              <div>Message envoyé !</div> 
               <p>
                 Merci pour votre message nous tâcherons de vous répondre dans
                 les plus brefs délais
@@ -117,13 +128,22 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
+        {/* Ajout de la gestion des erreurs */}
+        {error && <div>An error occured</div>}
+      {/* Vérification de la valeur de last pour rendre le composant EventCard conditionnel */}
+      {last === null ? (
+        "loading"
+      ) : (
+        // Rendu du composant EventCard avec les propriétés extraites de last
         <EventCard
-          imageSrc={last?.cover}
-          title={last?.title}
-          date={new Date(last?.date)}
+        // Modification : Utilisation de last au lieu de last?
+          imageSrc={last.cover} 
+          title={last.title}
+          date={new Date(last.date)}
           small
           label="boom"
         />
+         )} 
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
