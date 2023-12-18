@@ -13,9 +13,14 @@ const Select = ({
   label,
   type = "normal",
 }) => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(null);
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
+
+    // console.log("newValue:", newValue);
+    // console.log("value:", value);
+    // console.log("collapsed:", collapsed);
+
     // Ajout d'une nouvelle valeur (newValue) a onChange
     onChange(newValue);
     setValue(newValue);
