@@ -27,16 +27,17 @@ const Form = ({ onSuccess, onError }) => {
     <form onSubmit={sendContact}>
       <div className="row">
         <div className="col">
-          <Field placeholder="" label="Nom" />
-          <Field placeholder="" label="Prénom" />
+          <Field placeholder="Nom" label="Nom" />
+          <Field placeholder="Prénom" label="Prénom" />
           <Select
             selection={["Personel", "Entreprise"]}
             onChange={() => null}
             label="Personel / Entreprise"
             type="large"
+            placeholder="Sélectionnez une option"
             titleEmpty
           />
-          <Field placeholder="" label="Email" />
+          <Field placeholder="Email" label="Email" />
           {/* Ajout de onClick={() => onSuccess()} pour rendre fonctionnel le click et afficher la modale de confirmation  */}
           <Button type={BUTTON_TYPES.SUBMIT} disabled={sending}
           onClick={() => onSuccess()}>
@@ -45,7 +46,7 @@ const Form = ({ onSuccess, onError }) => {
         </div>
         <div className="col">
           <Field
-            placeholder="message"
+            placeholder="Message"
             label="Message"
             type={FIELD_TYPES.TEXTAREA}
           />
