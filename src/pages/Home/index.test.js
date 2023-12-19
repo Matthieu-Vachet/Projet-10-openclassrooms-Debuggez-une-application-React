@@ -1,5 +1,12 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Home from "./index";
+import EventList from "../../containers/Events";
+import EventCard from "../../components/EventCard";
+import PeopleCard from "../../components/PeopleCard";
+import Menu from "../../containers/Menu";
+import Slider from "../../containers/Slider";
+import ServiceCard from "../../components/ServiceCard";
+import Form from "../../containers/Form";
 
 
 describe("When Form is created", () => {
@@ -30,16 +37,39 @@ describe("When Form is created", () => {
 
 
 describe("When a page is created", () => {
+  it("a Menu is displayed", () => {
+    render(<Menu />);
+  })
+  it("a Slider is displayed", () => {
+    render(<Slider />);
+  })
+  it("a list of services is displayed", () => {
+    render(<ServiceCard imageSrc="/images/priscilla-du-preez-Q7wGvnbuwj0-unsplash1.png">
+    <h3>test title</h3>
+    test text
+  </ServiceCard>);
+  })
   it("a list of events is displayed", () => {
-    // to implement
+    render(<EventList />);
   })
   it("a list a people is displayed", () => {
-    // to implement
+    render(
+      <PeopleCard
+        imageSrc="http://src-image"
+        imageAlt="image-alt-text"
+        name="test name"
+        position="test position"
+      />
+    );
   })
-  it("a footer is displayed", () => {
-    // to implement
+  it("a form is displayed", () => {
+    render(<Form />);
   })
   it("an event card, with the last event, is displayed", () => {
-    // to implement
+    render(<EventCard imageSrc="http://src-image" imageAlt="image-alt-text" date={new Date("2022-04-01")} 
+    title="test event"
+    
+    label="test label"
+    />);
   })
 });
