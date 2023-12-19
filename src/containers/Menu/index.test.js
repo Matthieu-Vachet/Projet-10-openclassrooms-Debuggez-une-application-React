@@ -23,4 +23,18 @@ describe("When Menu is created", () => {
       expect(window.document.location.hash).toEqual("#contact");
     });
   });
+
+  describe("to click on a link", () => {
+    it("we are redirected to the section concerned", async () => {
+      render(<Menu />);
+      
+    const servicesLink = screen.getByText(/Nos services/i);
+    const realisationsLink = screen.getByText(/Nos réalisation/i);
+    const equipeLink = screen.getByText(/Notre équipe/i);
+
+    expect(servicesLink).toHaveAttribute("href", "#nos-services");
+    expect(realisationsLink).toHaveAttribute("href", "#nos-realisations");
+    expect(equipeLink).toHaveAttribute("href", "#notre-equipe");
+    });
+  })
 });

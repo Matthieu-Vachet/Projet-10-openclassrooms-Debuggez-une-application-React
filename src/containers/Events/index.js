@@ -64,6 +64,7 @@ return (
                            title={event.title}
                            date={new Date(event.date)}
                            label={event.type}
+                           data-testid="event-card"
                         />
                      )}
                   </Modal>
