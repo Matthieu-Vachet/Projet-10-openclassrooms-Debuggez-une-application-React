@@ -21,7 +21,7 @@ const Page = () => {
 
   // Vérifie si 'data' existe, ainsi que 'data.events' et s'il y a au moins un élément dans 'data.events'
   // Si c'est le cas, la variable 'last' est définie comme étant le dernier élément dans 'data.events'
-  // Sinon, la variable 'last' est définie comme nulle
+  // Sinon, la variable 'last' est définie comme null
   const last =
     data && data.events && data.events.length > 0
       ? data.events[data.events.length - 1]
@@ -139,7 +139,7 @@ const Page = () => {
         {/* Le composant Modal fournit une fonction 'setIsOpened' pour ouvrir et fermer le modal */}
         {({ setIsOpened }) => (
             <EventCard
-                // Lorsque la carte est cliquée, on ouvre le modal
+                // Lorsque la carte est cliquée, on ouvre la modal
                 onClick={() => setIsOpened(true)}
                 // L'image de la prestation est affichée en utilisant la propriété 'imageSrc' de la carte
                 imageSrc={last?.cover}
