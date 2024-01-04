@@ -19,7 +19,7 @@ const Slider = () => {
       5000
     );
   };
-  
+
   useEffect(() => {
     nextCard();
   });
@@ -30,9 +30,8 @@ const Slider = () => {
         // Remplacement de <></> par une div en ajoute la Key >
         <div key={event.title}>
           <div
-            className={`SlideCard SlideCard--${
-              index === idx ? "display" : "hide"
-            }`}
+            className={`SlideCard SlideCard--${index === idx ? "display" : "hide"
+              }`}
           >
             <img src={event.cover} alt="forum" />
             <div className="SlideCard__descriptionContainer">
@@ -45,7 +44,7 @@ const Slider = () => {
           </div>
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
-                {byDateDesc?.map((_, radioIdx) => (
+              {byDateDesc?.map((_, radioIdx) => (
                 <input
                   // Modification de key={`${event.id}`}
                   key={`${_.title}`}
@@ -56,7 +55,7 @@ const Slider = () => {
                   onChange={() => null}
                 />
               ))}
-              
+
             </div>
           </div>
         </div>
