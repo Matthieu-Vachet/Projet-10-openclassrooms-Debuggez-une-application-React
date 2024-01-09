@@ -2,10 +2,10 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import Menu from "./index";
 
 
-// Début du bloc de tests pour la création du Menu
+// AJOUT Début du bloc de tests pour la création du Menu
 describe("When Menu is created", () => {
-  // Test pour vérifier si une liste de liens obligatoires et le logo sont affichés
-  it("a list of mandatories links and the logo are displayed", async () => {
+  // Test pour vérifier si une liste de liens obligatoires sont affichés
+  it("a list of mandatories links are displayed", async () => {
     // Rendu du composant Menu
     render(<Menu />);
     // Recherche des textes "Nos services", "Nos réalisations", "Notre équipe" et "Contact" dans le document
@@ -37,10 +37,10 @@ describe("When Menu is created", () => {
   });
 
 
-  // Début du bloc de tests pour le cas où un clic est déclenché sur un lien
-  describe("to click on a link", () => {
-    // Test pour vérifier si nous sommes redirigés vers la section concernée
-    it("we are redirected to the section concerned", async () => {
+  // AJOUT Début du bloc de tests pour vérifier les attributs href des liens
+  describe("Checking link href attributes", () => {
+    // Test pour vérifier si les liens ont les attributs href corrects
+    it("links have correct href attributes", async () => {
       // Rendu du composant Menu
       render(<Menu />);
       // Recherche des liens "Nos services", "Nos réalisations" et "Notre équipe" dans le document
