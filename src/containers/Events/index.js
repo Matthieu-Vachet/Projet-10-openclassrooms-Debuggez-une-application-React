@@ -34,7 +34,23 @@ const EventList = () => {
       (currentPage - 1) * PER_PAGE, // Index de début de la portion.
       currentPage * PER_PAGE // Index de fin de la portion.
    );
-
+   
+   /* 
+   Ancien code 
+   const filteredEvents = (
+    (!type
+      ? data?.events
+      : data?.events) || []
+  ).filter((event, index) => {
+    if (
+      (currentPage - 1) * PER_PAGE <= index &&
+      PER_PAGE * currentPage > index
+    ) {
+      return true;
+    }
+    return false;
+  });
+  */
 
    const changeType = (evtType) => {
       setCurrentPage(1);

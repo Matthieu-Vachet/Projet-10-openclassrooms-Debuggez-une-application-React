@@ -15,7 +15,8 @@ import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
   // Déclaration de la variable 'data' et 'error' en utilisant le hook 'useData'
-  const { data, error } = useData();
+  const { data, error } = useData(); // Anciens : const { last } = useData();
+
   // console.log("Value Data")
   // console.log(data)
 
@@ -26,6 +27,7 @@ const Page = () => {
     data && data.events && data.events.length > 0
       ? data.events[data.events.length - 1]
       : null;
+      
   // console.log("Value Last")
   // console.log(last)
 

@@ -27,6 +27,7 @@ const Select = ({
     // Suppression de (newValue) et ajout de (!collapsed)
     setCollapsed(!collapsed);
   };
+
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
       {label && <div className="label">{label}</div>}
